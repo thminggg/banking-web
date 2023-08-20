@@ -1,3 +1,4 @@
+import { StrictMode } from "react";
 import ThemeWrapper from "@/containers/ThemeWrapper";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -17,9 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeWrapper>
-        <body className={`${inter.className} main`}>{children}</body>
-      </ThemeWrapper>
+      <StrictMode>
+        <ThemeWrapper>
+          <body className={`${inter.className} main`}>{children}</body>
+        </ThemeWrapper>
+      </StrictMode>
     </html>
   );
 }

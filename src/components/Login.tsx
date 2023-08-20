@@ -1,5 +1,7 @@
 "use client";
 
+import { useUserContext } from "@/contexts/userContext";
+import { UserContextType } from "@/types/user";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
@@ -15,6 +17,9 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  // Context User
+  const { user, saveUser } = useUserContext() as UserContextType;
+
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     switch (event.target.id) {
       case "username":
@@ -28,14 +33,17 @@ const Login = () => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Enter") {
-      login();
+      handleLogin();
     }
   };
 
-  const login = () => {
+  const handleLogin = () => {
     // Error Validations
     if (username.length === 0) return;
     if (password.length === 0) return;
+
+    // Save Context
+    saveUser({ name: username });
 
     // Proceed
     router.push("/account-list");
@@ -46,7 +54,11 @@ const Login = () => {
       <Grid container spacing={1.5} justifyContent="center">
         <Image src={myAppIcon} alt="Sign up" height={250} priority />
         <Grid item xs={12}>
-          <p>Please login your account</p>
+          {user?.name ? (
+            <p>Welcome back {user.name}</p>
+          ) : (
+            <p>Please login your account</p>
+          )}
         </Grid>
         <Grid item xs={12}>
           <TextField
@@ -70,7 +82,7 @@ const Login = () => {
           />
         </Grid>
         <RightMostGrid>
-          <Button variant="contained" onClick={login}>
+          <Button variant="contained" onClick={handleLogin}>
             Login
           </Button>
         </RightMostGrid>
