@@ -1,12 +1,18 @@
-import { IAccount } from "@/types/account";
+import { Account, Currencies, SupportedCountries } from "@/types/account";
 import Grid from "@mui/material/Grid";
 import styles from "@/styles/accountListItem.module.css";
 import RightMostGrid from "./RightMostGrid";
 
-export default function AccountListItem({ account }: { account: IAccount }) {
+export default function AccountListItem({
+  country,
+  account,
+}: {
+  country: SupportedCountries;
+  account: Account;
+}) {
   const _amount = new Intl.NumberFormat("en-CA", {
     style: "currency",
-    currency: "CAD",
+    currency: Currencies[country],
   }).format(account.amount);
 
   return (
