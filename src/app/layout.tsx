@@ -1,7 +1,8 @@
-import { StrictMode } from "react";
 import ThemeWrapper from "@/containers/ThemeWrapper";
+import { UserProvider } from "@/contexts/userContext";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { StrictMode } from "react";
 import "../styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <StrictMode>
         <ThemeWrapper>
-          <body className={`${inter.className} main`}>{children}</body>
+          <UserProvider>
+            <body className={`${inter.className} main`}>{children}</body>
+          </UserProvider>
         </ThemeWrapper>
       </StrictMode>
     </html>

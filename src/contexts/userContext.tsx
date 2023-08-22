@@ -1,4 +1,6 @@
-import { IUser, IUserContextType } from "@/types/user";
+"use client";
+
+import { User, UserContextType } from "@/types/user";
 import React, { createContext, useContext, useState } from "react";
 
 const defaultUser = {
@@ -6,15 +8,15 @@ const defaultUser = {
 };
 
 // Create a context
-const UserContext = createContext<IUserContextType | null>(null);
+const UserContext = createContext<UserContextType | null>(null);
 
 export function useUserContext() {
   return useContext(UserContext);
 }
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<IUser | null>(defaultUser);
-  const saveUser = (user: IUser) => {
+  const [user, setUser] = useState<User | null>(defaultUser);
+  const saveUser = (user: User) => {
     setUser(user);
   };
 

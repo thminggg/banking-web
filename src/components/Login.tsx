@@ -1,7 +1,7 @@
 "use client";
 
 import { useUserContext } from "@/contexts/userContext";
-import { IUserContextType } from "@/types/user";
+import { UserContextType } from "@/types/user";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
@@ -18,7 +18,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   // Context User
-  const { user, saveUser } = useUserContext() as IUserContextType;
+  const { user, saveUser } = useUserContext() as UserContextType;
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     switch (event.target.id) {
