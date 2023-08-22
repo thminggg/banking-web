@@ -2,7 +2,7 @@ export interface IUser {
   name: string;
 }
 
-export type UserContextType = {
+export interface IUserContextType {
   user: IUser | null;
   saveUser: (user: IUser) => void;
-};
+}

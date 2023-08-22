@@ -23,6 +23,7 @@
       "@/contexts/*": ["./src/contexts/*"],
       "@/containers/*": ["./src/containers/*"],
       "@/components/*": ["./src/components/*"],
+      "@/styles/*": ["./src/styles/*"],
       "@/types/*": ["./src/@types/*"],
     }
   },

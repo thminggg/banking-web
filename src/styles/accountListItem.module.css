@@ -1,0 +1,13 @@
+.amount {
+  padding-top: 3.5em;
+}
+
+.accountNumber {
+  font-size: 0.85em;
+  color: rgb(84, 82, 82);
+}
+
+.seperatedLine {
+  padding-bottom: 0.75em;
+  border-bottom: 0.1em lightgray solid;
+}

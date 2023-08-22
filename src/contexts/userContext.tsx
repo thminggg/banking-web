@@ -1,4 +1,4 @@
-import { IUser, UserContextType } from "@/types/user";
+import { IUser, IUserContextType } from "@/types/user";
 import React, { createContext, useContext, useState } from "react";
 
 const defaultUser = {
@@ -6,7 +6,7 @@ const defaultUser = {
 };
 
 // Create a context
-const UserContext = createContext<UserContextType | null>(null);
+const UserContext = createContext<IUserContextType | null>(null);
 
 export function useUserContext() {
   return useContext(UserContext);
