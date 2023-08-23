@@ -1,6 +1,10 @@
-import { Account, Currencies, SupportedCountries } from "@/types/account";
-import Grid from "@mui/material/Grid";
 import styles from "@/styles/accountListItem.module.css";
+import { Account, Currencies, SupportedCountries } from "@/types/account";
+import { ButtonBase } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import { useRouter } from "next/navigation";
+import React from "react";
+import LeftMostGrid from "./LeftMostGrid";
 import RightMostGrid from "./RightMostGrid";
 
 export default function AccountListItem({
@@ -10,31 +14,40 @@ export default function AccountListItem({
   country: SupportedCountries;
   account: Account;
 }) {
-  const _amount = new Intl.NumberFormat("en-CA", {
+  const router = useRouter();
+  const formattedAmout = new Intl.NumberFormat("en-CA", {
     style: "currency",
     currency: Currencies[country],
   }).format(account.amount);
 
+  const handleAccountClick = (event: React.MouseEvent<HTMLInputElement>) => {
+    router.push("/account-details");
+  };
+
   return (
-    <Grid
-      container
-      direction="row"
-      key={account.id}
-      className={styles.seperatedLine}
-    >
-      {/* Account Name & Acconut Number */}
-      <Grid item xs={6}>
-        <Grid container direction="column">
-          <Grid item xs={6}>
-            {account.name}
-          </Grid>
-          <Grid item xs={6} className={styles.accountNumber}>
-            {account.id}
+    <ButtonBase className={`${styles.item} ${styles.itemButton}`}>
+      <Grid
+        container
+        direction="row"
+        className={styles.seperatedLine}
+        onClick={handleAccountClick}
+      >
+        {/* Account Name & Acconut Number */}
+        <Grid item xs={6}>
+          <Grid container direction="column">
+            <LeftMostGrid item xs={6} className={styles.accountName}>
+              {account.name}
+            </LeftMostGrid>
+            <LeftMostGrid item xs={6} className={styles.accountNumber}>
+              {account.id}
+            </LeftMostGrid>
           </Grid>
         </Grid>
+        {/* Account Balance */}
+        <RightMostGrid className={styles.amount}>
+          {formattedAmout}
+        </RightMostGrid>
       </Grid>
-      {/* Account Balance */}
-      <RightMostGrid className={styles.amount}>{_amount}</RightMostGrid>
-    </Grid>
+    </ButtonBase>
   );
 }

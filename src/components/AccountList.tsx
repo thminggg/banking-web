@@ -20,8 +20,8 @@ export default function AccountList({ accounts }: PropsType) {
 
   return (
     <>
-      <p>Welcome back {user?.name}!</p>
-      <Grid container rowGap={6}>
+      {user?.name && <p>Welcome back {user?.name}!</p>}
+      <Grid container rowGap={6} paddingBottom={12}>
         {Object.values(SupportedCountries).map((country) => {
           return (
             accounts?.[country] && (

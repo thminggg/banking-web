@@ -2,9 +2,22 @@
   padding-top: 3.5em;
 }
 
+.accountName {
+  font-size: 1em;
+}
+
 .accountNumber {
   font-size: 0.85em;
   color: rgb(84, 82, 82);
+}
+
+.item {
+  margin-top: 0.5em;
+}
+
+.itemButton {
+  width: 100%;
+  font-size: 1em;
 }
 
 .seperatedLine {
