@@ -21,7 +21,7 @@ export default function AccountListItem({
   }).format(account.amount);
 
   const handleAccountClick = (event: React.MouseEvent<HTMLInputElement>) => {
-    router.push("/account-details");
+    router.push(`/account-transactions/${account.id}`);
   };
 
   return (
