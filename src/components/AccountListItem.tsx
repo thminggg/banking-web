@@ -1,5 +1,6 @@
 import styles from "@/styles/accountListItem.module.css";
-import { Account, Currencies, SupportedCountries } from "@/types/account";
+import { Account, SupportedCountries } from "@/types/account";
+import { formatCurrency } from "@/utils/utils";
 import { ButtonBase } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useRouter } from "next/navigation";
@@ -15,13 +16,10 @@ export default function AccountListItem({
   account: Account;
 }) {
   const router = useRouter();
-  const formattedAmout = new Intl.NumberFormat("en-CA", {
-    style: "currency",
-    currency: Currencies[country],
-  }).format(account.amount);
+  const formattedAmout = formatCurrency(country, account.amount);
 
   const handleAccountClick = (event: React.MouseEvent<HTMLInputElement>) => {
-    router.push(`/account-transactions/${account.id}`);
+    router.push(`/account-transactions/${account.country}_${account.id}`);
   };
 
   return (

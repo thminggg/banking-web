@@ -2,7 +2,7 @@ export type Account = {
   id: string;
   name: string;
   amount: number;
-  country: string;
+  country: SupportedCountries;
 };
 
 export enum SupportedCountries {
