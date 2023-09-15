@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef } from "react";
 
-function Resizable({
+function VerticalResizable({
   width = "100%", // Fixed width
   initialHeight = "50vh",
   children,
@@ -55,11 +55,12 @@ function Resizable({
     >
       <div
         style={{
-          height: "20px",
+          height: "0.5em",
+          width: "10em",
           cursor: "ns-resize",
           background: "#333",
           color: "white",
-          textAlign: "center",
+          margin: "auto",
         }}
         onMouseDown={handleMouseDown}
       />
@@ -68,4 +69,4 @@ function Resizable({
   );
 }
 
-export default Resizable;
+export default VerticalResizable;

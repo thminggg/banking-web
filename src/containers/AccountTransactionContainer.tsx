@@ -13,7 +13,6 @@ export default function AccountTransactionsContainer({
   const [accountData, setAccountData] = useState<Account>();
 
   useEffect(() => {
-    console.log(`Retrieve by account number ${account}`);
     const [country, id] = account.split("_") as [SupportedCountries, string];
     const _accountData = accounts?.[country]?.find((acc) => acc.id === id);
     if (_accountData) setAccountData(_accountData);
