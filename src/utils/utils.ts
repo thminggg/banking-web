@@ -6,3 +6,7 @@ export const formatCurrency = (country: SupportedCountries, amount: number) => {
     currency: Currencies[country],
   }).format(amount);
 };
+
+export const clamp = (value: number, min: number, max: number) => {
+  return Math.min(max, Math.max(min, value));
+};

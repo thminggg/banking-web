@@ -1,0 +1,22 @@
+.accountName {
+  font-size: 1.15em;
+}
+
+.accountId {
+  font-size: 0.85em;
+}
+
+.section {
+  margin-top: 1em;
+
+}
+
+.accountBalance {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.actionButton {
+  text-align: center;
+  padding-top: 1em;
+}

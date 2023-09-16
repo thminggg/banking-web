@@ -1,5 +1,26 @@
 "use client";
 import React, { useState, useRef } from "react";
+import { clamp } from "@/utils/utils";
+
+function DragBar({
+  handleMouseDown,
+}: {
+  handleMouseDown: { (event: React.MouseEvent<HTMLDivElement>): void };
+}) {
+  return (
+    <div
+      style={{
+        height: "0.5em",
+        width: "10em",
+        cursor: "ns-resize",
+        background: "#aaaaaa",
+        margin: "1em auto",
+        borderRadius: "1em",
+      }}
+      onMouseDown={handleMouseDown}
+    />
+  );
+}
 
 function VerticalResizable({
   width = "100%", // Fixed width
@@ -10,6 +31,8 @@ function VerticalResizable({
   initialHeight?: string;
   children?: React.ReactNode;
 }) {
+  const MAX_HEIGHT = screen.height - 200;
+  const MIN_HEIGHT = 300;
   const [height, setHeight] = useState(initialHeight); // Initial height
   const draggingRef = useRef<HTMLDivElement>(null);
   const lastYRef = useRef(0);
@@ -19,8 +42,9 @@ function VerticalResizable({
       const delta = lastYRef.current - event.clientY;
       const componentCurrentHeight = draggingRef.current.clientHeight;
       const newHeight = componentCurrentHeight + delta;
-      setHeight(`${newHeight}px`);
       lastYRef.current = event.clientY;
+
+      setHeight(`${clamp(newHeight, MIN_HEIGHT, MAX_HEIGHT)}px`);
     }
   };
 
@@ -53,17 +77,7 @@ function VerticalResizable({
         overflow: "hidden",
       }}
     >
-      <div
-        style={{
-          height: "0.5em",
-          width: "10em",
-          cursor: "ns-resize",
-          background: "#333",
-          color: "white",
-          margin: "auto",
-        }}
-        onMouseDown={handleMouseDown}
-      />
+      <DragBar handleMouseDown={handleMouseDown} />
       {children}
     </div>
   );

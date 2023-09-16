@@ -1,15 +1,15 @@
 import Grid from "@mui/material/Grid";
 import LeftMostGrid from "./LeftMostGrid";
-import Resizable from "./VerticalResizable";
+import VerticalResizable from "./VerticalResizable";
 
 export default function AccountTransactionList() {
   return (
     <Grid container direction="row" justifyContent="center">
-      <Resizable>
+      <VerticalResizable>
         <LeftMostGrid>
           <p>Transaction History</p>
         </LeftMostGrid>
-      </Resizable>
+      </VerticalResizable>
     </Grid>
   );
 }
