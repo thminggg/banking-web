@@ -1,7 +1,7 @@
 import styles from "@/styles/accountListItem.module.css";
 import { Account, SupportedCountries } from "@/types/account";
 import { formatCurrency } from "@/utils/utils";
-import { ButtonBase } from "@mui/material";
+import ButtonBase from "@mui/material/ButtonBase";
 import Grid from "@mui/material/Grid";
 import { useRouter } from "next/navigation";
 import React from "react";

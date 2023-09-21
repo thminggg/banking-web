@@ -1,7 +1,10 @@
 import styles from "@/styles/accountTransaction.module.css";
 import { Account } from "@/types/account";
 import { formatCurrency } from "@/utils/utils";
-import Button from "@mui/material/Button";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import ArticleIcon from "@mui/icons-material/Article";
+import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
+import ButtonBase from "@mui/material/ButtonBase";
 import Grid from "@mui/material/Grid";
 import AccountTransactionList from "./AccountTransactionList";
 import CenterText from "./Text/CenterText";
@@ -35,12 +38,38 @@ export default function AccountTransaction({ account }: { account: Account }) {
       </Grid>
       {/* Actions */}
       <Grid container direction="row" className={styles.section}>
-        <Grid item xs={12} className={styles.actionButton}>
-          <Button variant="contained">eStatements</Button>
-        </Grid>
-        <Grid item xs={12} className={styles.actionButton}>
-          <Button variant="contained">interac</Button>
-        </Grid>
+        <ButtonBase
+          className={styles.actionButton}
+          sx={{
+            margin: "1em 0",
+          }}
+        >
+          <Grid item xs={2}>
+            <ArticleIcon />
+          </Grid>
+          <Grid item xs={6} className={styles.actionButtonText}>
+            eStatements
+          </Grid>
+          <Grid item xs={3}>
+            <ArrowForwardIosSharpIcon />
+          </Grid>
+        </ButtonBase>
+        <ButtonBase
+          className={styles.actionButton}
+          sx={{
+            margin: "1em 0",
+          }}
+        >
+          <Grid item xs={2}>
+            <CurrencyExchangeIcon />
+          </Grid>
+          <Grid item xs={6} className={styles.actionButtonText}>
+            Interac
+          </Grid>
+          <Grid item xs={3}>
+            <ArrowForwardIosSharpIcon />
+          </Grid>
+        </ButtonBase>
       </Grid>
       <AccountTransactionList />
     </Grid>

@@ -3,7 +3,7 @@
 }
 
 .accountId {
-  font-size: 0.85em;
+  font-size: 0.95em;
 }
 
 .section {
@@ -16,7 +16,13 @@
   font-weight: 500;
 }
 
+.actionButtonText {
+  text-align: left;
+  font-size: 1.25em;
+  text-decoration: underline;
+}
+
 .actionButton {
-  text-align: center;
-  padding-top: 1em;
+  display: block;
+  width: 100%;
 }
