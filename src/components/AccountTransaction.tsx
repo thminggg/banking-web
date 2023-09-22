@@ -45,7 +45,7 @@ export default function AccountTransaction({ account }: { account: Account }) {
           }}
         >
           <Grid item xs={2}>
-            <ArticleIcon />
+            <ArticleIcon style={{ color: "orange" }} />
           </Grid>
           <Grid item xs={6} className={styles.actionButtonText}>
             eStatements
@@ -61,7 +61,7 @@ export default function AccountTransaction({ account }: { account: Account }) {
           }}
         >
           <Grid item xs={2}>
-            <CurrencyExchangeIcon />
+            <CurrencyExchangeIcon style={{ color: "green" }} />
           </Grid>
           <Grid item xs={6} className={styles.actionButtonText}>
             Interac
@@ -71,7 +71,7 @@ export default function AccountTransaction({ account }: { account: Account }) {
           </Grid>
         </ButtonBase>
       </Grid>
-      <AccountTransactionList />
+      <AccountTransactionList accountId={account.id} />
     </Grid>
   );
 }

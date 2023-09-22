@@ -16,7 +16,7 @@ export default function AccountListItem({
   account: Account;
 }) {
   const router = useRouter();
-  const formattedAmout = formatCurrency(country, account.amount);
+  const formattedAmount = formatCurrency(country, account.amount);
 
   const handleAccountClick = (event: React.MouseEvent<HTMLInputElement>) => {
     router.push(`/account-transactions/${account.country}_${account.id}`);
@@ -43,7 +43,7 @@ export default function AccountListItem({
         </Grid>
         {/* Account Balance */}
         <RightMostGrid className={styles.amount}>
-          {formattedAmout}
+          {formattedAmount}
         </RightMostGrid>
       </Grid>
     </ButtonBase>
