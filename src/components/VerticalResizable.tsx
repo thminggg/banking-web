@@ -75,6 +75,7 @@ function VerticalResizable({
         width: width,
         background: "#f5f5f5",
         overflow: "hidden",
+        overflowY: "scroll",
       }}
     >
       <DragBar handleMouseDown={handleMouseDown} />

@@ -1,19 +1,34 @@
 import styles from "@/styles/accountTransaction.module.css";
 import { Account } from "@/types/account";
 import { formatCurrency } from "@/utils/utils";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import ArticleIcon from "@mui/icons-material/Article";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import ButtonBase from "@mui/material/ButtonBase";
 import Grid from "@mui/material/Grid";
+import { useRouter } from "next/navigation";
 import AccountTransactionList from "./AccountTransactionList";
+import LeftMostGrid from "./LeftMostGrid";
 import CenterText from "./Text/CenterText";
 
 export default function AccountTransaction({ account }: { account: Account }) {
+  const router = useRouter();
   const formattedAmout = formatCurrency(account.country, account.amount);
+
+  const handleGoBack = () => {
+    // Proceed
+    router.push("/account-list");
+  };
 
   return (
     <Grid container direction="row">
+      {/* Back Arrow */}
+      <LeftMostGrid xs={12}>
+        <ButtonBase onClick={handleGoBack}>
+          <ArrowBackIcon />
+        </ButtonBase>
+      </LeftMostGrid>
       {/* Account Info */}
       <Grid item xs={12}>
         <CenterText className={styles.accountName} text={account.name} />
