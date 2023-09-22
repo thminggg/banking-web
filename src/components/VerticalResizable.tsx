@@ -10,6 +10,8 @@ function DragBar({
   return (
     <div
       style={{
+        position: "sticky",
+        top: "1em",
         height: "0.5em",
         width: "10em",
         cursor: "ns-resize",
