@@ -8,9 +8,9 @@ import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import ButtonBase from "@mui/material/ButtonBase";
 import Grid from "@mui/material/Grid";
 import { useRouter } from "next/navigation";
-import AccountTransactionList from "./AccountTransactionList";
-import LeftMostGrid from "./LeftMostGrid";
-import CenterText from "./Text/CenterText";
+import AccountTransactionList from "@/components/AccountTransaction/AccountTransactionList";
+import LeftMostGrid from "@/components/LeftMostGrid";
+import CenterText from "@/components/Text/CenterText";
 
 export default function AccountTransaction({ account }: { account: Account }) {
   const router = useRouter();
@@ -57,6 +57,9 @@ export default function AccountTransaction({ account }: { account: Account }) {
           className={styles.actionButton}
           sx={{
             margin: "1em 0",
+          }}
+          onClick={() => {
+            router.push("/attachments/Mock-Bank-Statement.pdf");
           }}
         >
           <Grid item xs={2}>

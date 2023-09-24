@@ -1,6 +1,6 @@
 "use client";
 
-import AccountTransaction from "@/components/AccountTransaction";
+import AccountTransaction from "@/components/AccountTransaction/AccountTransaction";
 import { accounts } from "@/data/accounts";
 import { Account, SupportedCountries } from "@/types/account";
 import { useEffect, useState } from "react";

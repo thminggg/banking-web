@@ -2,8 +2,8 @@ import { accountTransactions } from "@/data/accountTransactions";
 import styles from "@/styles/accountTransactionList.module.css";
 import Grid from "@mui/material/Grid";
 import AccountTransactionItem from "./AccountTransactionItem";
-import LeftMostGrid from "./LeftMostGrid";
-import VerticalResizable from "./VerticalResizable";
+import LeftMostGrid from "@/components/LeftMostGrid";
+import VerticalResizable from "@/components/VerticalResizable";
 
 export default function AccountTransactionList({
   accountId,

@@ -2,8 +2,8 @@ import styles from "@/styles/accountTransactionListItem.module.css";
 import { AccountTransaction } from "@/types/accountTransaction";
 import { formatCurrency, formatDate } from "@/utils/utils";
 import Grid from "@mui/material/Grid";
-import LeftMostGrid from "./LeftMostGrid";
-import RightMostGrid from "./RightMostGrid";
+import LeftMostGrid from "@/components/LeftMostGrid";
+import RightMostGrid from "@/components/RightMostGrid";
 
 export default function AccountTransactionItem({
   item,

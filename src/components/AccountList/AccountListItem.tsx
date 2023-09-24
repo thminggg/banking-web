@@ -5,8 +5,8 @@ import ButtonBase from "@mui/material/ButtonBase";
 import Grid from "@mui/material/Grid";
 import { useRouter } from "next/navigation";
 import React from "react";
-import LeftMostGrid from "./LeftMostGrid";
-import RightMostGrid from "./RightMostGrid";
+import LeftMostGrid from "@/components/LeftMostGrid";
+import RightMostGrid from "@/components/RightMostGrid";
 
 export default function AccountListItem({
   country,
