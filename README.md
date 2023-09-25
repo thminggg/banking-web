@@ -1,13 +1,15 @@
 ## Getting Started
 
-First, run the development server:
+Install npm packages:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the web application.
+Open [http://localhost:3000/banking-web](http://localhost:3000/banking-web) with your browser to see the web application.
