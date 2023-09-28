@@ -29,7 +29,7 @@ function DragBar({
 
 function VerticalResizable({
   width = "100%", // Fixed width
-  initialHeight = "50vh",
+  initialHeight = "30vh",
   children,
 }: {
   width?: string;
