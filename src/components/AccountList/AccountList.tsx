@@ -2,7 +2,9 @@ import { useUserContext } from "@/contexts/userContext";
 import styles from "@/styles/accountList.module.css";
 import { AccountListData, SupportedCountries } from "@/types/account";
 import { UserContextType } from "@/types/user";
+import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import { useRouter } from "next/navigation";
 import AccountListItem from "./AccountListItem";
 
 type PropsType = { accounts: AccountListData };
@@ -16,11 +18,23 @@ const countryNameMap: { [key in SupportedCountries]: string } = {
 };
 
 export default function AccountList({ accounts }: PropsType) {
+  const router = useRouter();
   const { user } = useUserContext() as UserContextType;
+
+  const handleLogout = () => {
+    router.push("/");
+  };
 
   return (
     <>
-      {user?.name && <p>Welcome back {user?.name}!</p>}
+      <Grid container direction="row">
+        <Grid item xs={6}>
+          {user?.name && <p>Welcome back {user?.name}!</p>}
+        </Grid>
+        <Grid item xs={6} className={styles.logoutButton}>
+          <Button onClick={handleLogout}>Logout</Button>
+        </Grid>
+      </Grid>
       <Grid container rowGap={6} paddingBottom={12}>
         {Object.values(SupportedCountries).map((country) => {
           return (

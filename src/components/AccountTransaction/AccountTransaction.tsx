@@ -1,3 +1,6 @@
+import AccountTransactionList from "@/components/AccountTransaction/AccountTransactionList";
+import LeftMostGrid from "@/components/LeftMostGrid";
+import CenterText from "@/components/Text/CenterText";
 import styles from "@/styles/accountTransaction.module.css";
 import { Account } from "@/types/account";
 import { formatCurrency } from "@/utils/utils";
@@ -7,18 +10,23 @@ import ArticleIcon from "@mui/icons-material/Article";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import ButtonBase from "@mui/material/ButtonBase";
 import Grid from "@mui/material/Grid";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import AccountTransactionList from "@/components/AccountTransaction/AccountTransactionList";
-import LeftMostGrid from "@/components/LeftMostGrid";
-import CenterText from "@/components/Text/CenterText";
+import { useRef } from "react";
 
 export default function AccountTransaction({ account }: { account: Account }) {
   const router = useRouter();
   const formattedAmout = formatCurrency(account.country, account.amount);
+  const linkRef = useRef<HTMLAnchorElement>(null);
 
   const handleGoBack = () => {
     // Proceed
     router.push("/account-list");
+  };
+
+  const handleOpenEStatement = () => {
+    // Click the <Link /> with reference
+    linkRef.current?.click();
   };
 
   return (
@@ -58,12 +66,10 @@ export default function AccountTransaction({ account }: { account: Account }) {
           sx={{
             margin: "1em 0",
           }}
-          onClick={() => {
-            router.push("/attachments/Mock-Bank-Statement.pdf");
-          }}
+          onClick={handleOpenEStatement}
         >
           <Grid item xs={2}>
-            <ArticleIcon style={{ color: "orange" }} />
+            <ArticleIcon className={styles.eStatementIcon} />
           </Grid>
           <Grid item xs={6} className={styles.actionButtonText}>
             eStatements
@@ -72,6 +78,13 @@ export default function AccountTransaction({ account }: { account: Account }) {
             <ArrowForwardIosSharpIcon />
           </Grid>
         </ButtonBase>
+        {/* Hidden Link */}
+        <Link
+          ref={linkRef}
+          className={styles.hidden}
+          href="/attachments/Mock-Bank-Statement.pdf"
+          target="_blank"
+        />
         <ButtonBase
           className={styles.actionButton}
           sx={{
@@ -79,7 +92,7 @@ export default function AccountTransaction({ account }: { account: Account }) {
           }}
         >
           <Grid item xs={2}>
-            <CurrencyExchangeIcon style={{ color: "green" }} />
+            <CurrencyExchangeIcon className={styles.transferIcon} />
           </Grid>
           <Grid item xs={6} className={styles.actionButtonText}>
             Interac

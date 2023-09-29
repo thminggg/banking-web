@@ -2,3 +2,7 @@
   font-size: 1.35em;
   font-weight: bold;
 }
+
+.logoutButton {
+  text-align: right;
+}

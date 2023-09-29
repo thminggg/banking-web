@@ -25,3 +25,15 @@
 .actionButton {
   width: 100%;
 }
+
+.eStatementIcon {
+  color: orange
+}
+
+.transferIcon {
+  color: green;
+}
+
+.hidden {
+  display: none;
+}
