@@ -19,9 +19,10 @@ const countryNameMap: { [key in SupportedCountries]: string } = {
 
 export default function AccountList({ accounts }: PropsType) {
   const router = useRouter();
-  const { user } = useUserContext() as UserContextType;
+  const { user, saveUser } = useUserContext() as UserContextType;
 
   const handleLogout = () => {
+    saveUser({ name: "" });
     router.push("/");
   };
 
@@ -31,7 +32,7 @@ export default function AccountList({ accounts }: PropsType) {
         <Grid item xs={6}>
           {user?.name && <p>Welcome back {user?.name}!</p>}
         </Grid>
-        <Grid item xs={6} className={styles.logoutButton}>
+        <Grid item xs={6} className={styles.logoutButtonGrid}>
           <Button onClick={handleLogout}>Logout</Button>
         </Grid>
       </Grid>
