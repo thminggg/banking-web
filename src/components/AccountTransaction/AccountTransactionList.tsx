@@ -16,7 +16,8 @@ export default function AccountTransactionList({
         <LeftMostGrid style={{ marginLeft: "1em", marginBottom: "1em" }}>
           <p>Transaction History</p>
         </LeftMostGrid>
-        {accountTransactions?.[accountId] ? (
+        {accountTransactions?.[accountId] &&
+        accountTransactions[accountId].length > 0 ? (
           accountTransactions[accountId].map((item) => {
             return (
               <Grid item xs={12} key={item.id}>
