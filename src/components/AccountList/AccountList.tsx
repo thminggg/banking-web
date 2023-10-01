@@ -1,7 +1,6 @@
 import { useUserContext } from "@/contexts/userContext";
 import styles from "@/styles/accountList.module.css";
 import { AccountListData, SupportedCountries } from "@/types/account";
-import { UserContextType } from "@/types/user";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { useRouter } from "next/navigation";
@@ -17,9 +16,13 @@ const countryNameMap: { [key in SupportedCountries]: string } = {
   [SupportedCountries.NZ]: "New Zealand 🇳🇿",
 };
 
+const Welcome = ({ name }: { name?: string }) => {
+  return <p>Welcome back {name}!</p>;
+};
+
 export default function AccountList({ accounts }: PropsType) {
   const router = useRouter();
-  const { user, saveUser } = useUserContext() as UserContextType;
+  const { user, saveUser } = useUserContext();
 
   const handleLogout = () => {
     saveUser({ name: "" });
@@ -30,7 +33,7 @@ export default function AccountList({ accounts }: PropsType) {
     <>
       <Grid container direction="row">
         <Grid item xs={6}>
-          {user?.name && <p>Welcome back {user?.name}!</p>}
+          <Welcome name={user?.name} />
         </Grid>
         <Grid item xs={6} className={styles.logoutButtonGrid}>
           <Button onClick={handleLogout}>Logout</Button>
