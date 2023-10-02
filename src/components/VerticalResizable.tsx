@@ -53,6 +53,9 @@ function VerticalResizable({
   };
 
   const handleMouseMove = (event: MouseEvent) => {
+    // Prevent text highlight when dragging
+    event.preventDefault();
+
     if (draggingRef.current) {
       const delta = lastYRef.current - event.clientY;
       const componentCurrentHeight = draggingRef.current.clientHeight;
