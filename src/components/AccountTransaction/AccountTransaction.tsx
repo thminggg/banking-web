@@ -1,6 +1,7 @@
 import AccountTransactionList from "@/components/AccountTransaction/AccountTransactionList";
 import LeftMostGrid from "@/components/LeftMostGrid";
 import CenterText from "@/components/Text/CenterText";
+import TransferDialog from "@/components/Transfer/TransferDialog";
 import styles from "@/styles/accountTransaction.module.css";
 import { Account } from "@/types/account";
 import { formatCurrency } from "@/utils/utils";
@@ -12,16 +13,25 @@ import ButtonBase from "@mui/material/ButtonBase";
 import Grid from "@mui/material/Grid";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function AccountTransaction({ account }: { account: Account }) {
   const router = useRouter();
   const formattedAmout = formatCurrency(account.country, account.amount);
   const linkRef = useRef<HTMLAnchorElement>(null);
+  const [open, setOpen] = useState(false);
 
   const handleGoBack = () => {
     // Proceed
     router.push("/account-list");
+  };
+
+  const handleOpenDialog = () => {
+    setOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpen(false);
   };
 
   const handleOpenEStatement = () => {
@@ -90,6 +100,7 @@ export default function AccountTransaction({ account }: { account: Account }) {
           sx={{
             margin: "1em 0",
           }}
+          onClick={handleOpenDialog}
         >
           <Grid item xs={2}>
             <CurrencyExchangeIcon className={styles.transferIcon} />
@@ -101,6 +112,7 @@ export default function AccountTransaction({ account }: { account: Account }) {
             <ArrowForwardIosSharpIcon />
           </Grid>
         </ButtonBase>
+        <TransferDialog open={open} handleClose={handleCloseDialog} />
       </Grid>
       <AccountTransactionList accountId={account.id} />
     </Grid>
