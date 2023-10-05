@@ -1,5 +1,5 @@
 import ThemeWrapper from "@/containers/ThemeWrapper";
-import { UserProvider } from "@/contexts/userContext";
+import { UserProvider } from "@/providers/userProvider";
 import "@/styles/globals.css";
 
 export default function StaticPageRootLayout({
