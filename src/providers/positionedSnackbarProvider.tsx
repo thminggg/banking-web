@@ -16,7 +16,11 @@ const defaultState: PositionedSnackbarState = {
 };
 
 export const PositionedSnackbarContext =
-  createContext<PositionedSnackbarContextType | null>(null);
+  createContext<PositionedSnackbarContextType>({
+    state: defaultState,
+    setPositionedSnackbarOpen: (newState) => () => {},
+    setPositionedSnackbarClose: (event, reason) => {},
+  });
 
 export function usePositionedSnackbarContext() {
   const { state, setPositionedSnackbarOpen, setPositionedSnackbarClose } =
