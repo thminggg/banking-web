@@ -1,6 +1,6 @@
 "use client";
 
-import { useUserContext } from "@/contexts/userContext";
+import { useUserContext } from "@/providers/userProvider";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";

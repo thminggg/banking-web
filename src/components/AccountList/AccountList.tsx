@@ -1,4 +1,4 @@
-import { useUserContext } from "@/contexts/userContext";
+import { useUserContext } from "@/providers/userProvider";
 import styles from "@/styles/accountList.module.css";
 import { AccountListData, SupportedCountries } from "@/types/account";
 import Button from "@mui/material/Button";
