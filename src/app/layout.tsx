@@ -1,9 +1,11 @@
+import PositionedSnackbar from "@/components/PositionedSnackbar";
 import ThemeWrapper from "@/containers/ThemeWrapper";
-import { UserProvider } from "@/contexts/userContext";
+import { PositionedSnackbarProvider } from "@/providers/positionedSnackbarProvider";
+import { UserProvider } from "@/providers/userProvider";
+import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { StrictMode } from "react";
-import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +24,12 @@ export default function RootLayout({
       <StrictMode>
         <ThemeWrapper>
           <UserProvider>
-            <body className={`${inter.className} main`}>{children}</body>
+            <PositionedSnackbarProvider>
+              <body className={`${inter.className} main`}>
+                <PositionedSnackbar />
+                {children}
+              </body>
+            </PositionedSnackbarProvider>
           </UserProvider>
         </ThemeWrapper>
       </StrictMode>

@@ -2,6 +2,7 @@ import AccountTransactionList from "@/components/AccountTransaction/AccountTrans
 import LeftMostGrid from "@/components/LeftMostGrid";
 import CenterText from "@/components/Text/CenterText";
 import TransferDialog from "@/components/Transfer/TransferDialog";
+import { usePositionedSnackbarContext } from "@/providers/positionedSnackbarProvider";
 import styles from "@/styles/accountTransaction.module.css";
 import { Account } from "@/types/account";
 import { formatCurrency } from "@/utils/utils";
@@ -73,12 +74,14 @@ const AccountActions = ({
   handleOpenEStatement,
   handleOpenDialog,
   handleCloseDialog,
+  handleConfirmDialog,
 }: {
   linkRef: RefObject<HTMLAnchorElement>;
   open: boolean;
-  handleOpenEStatement: MouseEventHandler<HTMLButtonElement>;
-  handleOpenDialog: MouseEventHandler<HTMLButtonElement>;
-  handleCloseDialog: MouseEventHandler<HTMLButtonElement>;
+  handleOpenEStatement: () => void;
+  handleOpenDialog: () => void;
+  handleCloseDialog: () => void;
+  handleConfirmDialog: () => void;
 }) => {
   return (
     <Grid container direction="row" className={styles.section}>
@@ -123,7 +126,11 @@ const AccountActions = ({
           <ArrowForwardIosSharpIcon />
         </Grid>
       </ButtonBase>
-      <TransferDialog open={open} handleClose={handleCloseDialog} />
+      <TransferDialog
+        open={open}
+        handleClose={handleCloseDialog}
+        handleConfirm={handleConfirmDialog}
+      />
     </Grid>
   );
 };
@@ -133,6 +140,7 @@ export default function AccountTransaction({ account }: { account: Account }) {
   const formattedAmount = formatCurrency(account.country, account.amount);
   const linkRef = useRef<HTMLAnchorElement>(null);
   const [open, setOpen] = useState(false);
+  const { setPositionedSnackbarOpen } = usePositionedSnackbarContext();
 
   const handleGoBack = () => {
     // Proceed
@@ -145,6 +153,18 @@ export default function AccountTransaction({ account }: { account: Account }) {
 
   const handleCloseDialog = () => {
     setOpen(false);
+  };
+
+  const handleConfirmDialog = () => {
+    setOpen(false);
+
+    // Show snackbar
+    setPositionedSnackbarOpen({
+      severity: "success",
+      message: "Transfer Successful!",
+      vertical: "top",
+      horizontal: "center",
+    })();
   };
 
   const handleOpenEStatement = () => {
@@ -161,6 +181,7 @@ export default function AccountTransaction({ account }: { account: Account }) {
         linkRef={linkRef}
         handleOpenDialog={handleOpenDialog}
         handleCloseDialog={handleCloseDialog}
+        handleConfirmDialog={handleConfirmDialog}
         handleOpenEStatement={handleOpenEStatement}
       />
       <AccountTransactionList accountId={account.id} />
