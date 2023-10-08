@@ -1,4 +1,5 @@
 import { accounts } from "@/data/accounts";
+import { SupportedCountries } from "@/types/account";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -17,10 +18,12 @@ export default function TransferDialog({
   open,
   handleClose,
   handleConfirm,
+  country,
 }: {
   open: boolean;
   handleClose: () => void;
   handleConfirm: () => void;
+  country: SupportedCountries;
 }) {
   const [fromAccount, setFromAccount] = useState("");
 
@@ -47,7 +50,7 @@ export default function TransferDialog({
               label="From account"
               onChange={handleFromAccountChange}
             >
-              {accounts.CA?.map((account) => (
+              {accounts[country]?.map((account) => (
                 <MenuItem key={account.id} value={account.id}>
                   {account.id}
                 </MenuItem>

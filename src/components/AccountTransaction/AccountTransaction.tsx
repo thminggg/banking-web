@@ -4,7 +4,7 @@ import CenterText from "@/components/Text/CenterText";
 import TransferDialog from "@/components/Transfer/TransferDialog";
 import { usePositionedSnackbarContext } from "@/providers/positionedSnackbarProvider";
 import styles from "@/styles/accountTransaction.module.css";
-import { Account } from "@/types/account";
+import { Account, SupportedCountries } from "@/types/account";
 import { formatCurrency } from "@/utils/utils";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
@@ -69,6 +69,7 @@ const AccountSummary = ({
 
 /* Account Actions */
 const AccountActions = ({
+  country,
   linkRef,
   open,
   handleOpenEStatement,
@@ -76,6 +77,7 @@ const AccountActions = ({
   handleCloseDialog,
   handleConfirmDialog,
 }: {
+  country: SupportedCountries;
   linkRef: RefObject<HTMLAnchorElement>;
   open: boolean;
   handleOpenEStatement: () => void;
@@ -130,6 +132,7 @@ const AccountActions = ({
         open={open}
         handleClose={handleCloseDialog}
         handleConfirm={handleConfirmDialog}
+        country={country}
       />
     </Grid>
   );
@@ -177,6 +180,7 @@ export default function AccountTransaction({ account }: { account: Account }) {
       <BackButton handleGoBack={handleGoBack} />
       <AccountSummary account={account} formattedAmount={formattedAmount} />
       <AccountActions
+        country={account.country}
         open={open}
         linkRef={linkRef}
         handleOpenDialog={handleOpenDialog}
