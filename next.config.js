@@ -5,5 +5,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const nextConfig = {
   basePath: "/react-frontend",
   reactStrictMode: true,
+  output: "export",
 };
 module.exports = withBundleAnalyzer(nextConfig);
