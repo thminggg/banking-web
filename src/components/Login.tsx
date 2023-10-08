@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import appLogo from "../../public/icons/undraw_savings_re_eq4w.svg";
+import appLogo from "@/public/icons/undraw_savings_re_eq4w.svg";
 import RightMostGrid from "./RightMostGrid";
 
 const Login = () => {

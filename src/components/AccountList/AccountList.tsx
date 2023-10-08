@@ -1,8 +1,10 @@
 import { useUserContext } from "@/providers/userProvider";
+import ccLogo from "@/public/icons/undraw_credit_card_payments_re_qboh.svg";
 import styles from "@/styles/accountList.module.css";
 import { AccountListData, SupportedCountries } from "@/types/account";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import AccountListItem from "./AccountListItem";
 
@@ -40,6 +42,15 @@ export default function AccountList({ accounts }: PropsType) {
         </Grid>
       </Grid>
       <Grid container rowGap={6} paddingBottom={12}>
+        <Grid
+          container
+          className={styles.summary}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Image src={ccLogo} alt="Credit card" />
+          <p>Apply 5% Cashback Visa credit card now!</p>
+        </Grid>
         {Object.values(SupportedCountries).map((country) => {
           return (
             accounts?.[country] && (
