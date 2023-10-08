@@ -12,12 +12,9 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 a {
@@ -29,4 +26,13 @@ a {
   max-width: 65vw;
   margin: auto;
   padding-top: 9em;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+
+  @media (min-width: 600px) {
+    max-height: 33vh;
+  }
 }

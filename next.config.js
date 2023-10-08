@@ -5,6 +5,5 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 const nextConfig = {
   basePath: "/banking-web",
-  output: "export",
 };
 module.exports = withBundleAnalyzer(nextConfig);

@@ -7,8 +7,7 @@ import TextField from "@mui/material/TextField";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import myAppIcon from "../../public/icons/undraw_my_app_re_gxtj.svg";
-import "../styles/globals.css";
+import appLogo from "../../public/icons/undraw_savings_re_eq4w.svg";
 import RightMostGrid from "./RightMostGrid";
 
 const Login = () => {
@@ -50,8 +49,10 @@ const Login = () => {
 
   return (
     <div onKeyDown={handleKeyDown}>
-      <Grid container spacing={1.5} justifyContent="center">
-        <Image src={myAppIcon} alt="Sign up" height={250} priority />
+      <Grid container spacing={1.5} justifyContent="center" direction="row">
+        <Grid item xs={8}>
+          <Image src={appLogo} alt="Sign up" className="mainImage" priority />
+        </Grid>
         <Grid item xs={12}>
           {user?.name ? (
             <p>Welcome back {user.name}</p>

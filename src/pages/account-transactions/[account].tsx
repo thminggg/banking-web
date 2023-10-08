@@ -1,6 +1,5 @@
 import AccountTransactionsContainer from "@/containers/AccountTransactionContainer";
 import { accounts } from "@/data/accounts";
-import "@/styles/globals.css";
 import { Account, SupportedCountries } from "@/types/account";
 import { GetStaticPaths, GetStaticProps } from "next";
 import StaticPageRootLayout from "@/containers/StaticPageRootLayout";
