@@ -6,8 +6,7 @@ import Snackbar from "@mui/material/Snackbar";
 
 export default function PositionedSnackbar() {
   // Context Positioned Snackbar State
-  const { state, setPositionedSnackbarOpen, setPositionedSnackbarClose } =
-    usePositionedSnackbarContext();
+  const { state, setPositionedSnackbarClose } = usePositionedSnackbarContext();
 
   const { open, severity, message, vertical, horizontal } = state;
 

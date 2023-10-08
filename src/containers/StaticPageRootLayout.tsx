@@ -1,5 +1,7 @@
 import ThemeWrapper from "@/containers/ThemeWrapper";
 import { UserProvider } from "@/providers/userProvider";
+import { PositionedSnackbarProvider } from "@/providers/positionedSnackbarProvider";
+import PositionedSnackbar from "@/components/PositionedSnackbar";
 import "@/styles/globals.css";
 
 export default function StaticPageRootLayout({
@@ -10,7 +12,12 @@ export default function StaticPageRootLayout({
   return (
     <ThemeWrapper>
       <UserProvider>
-        <div className={`main`}>{children}</div>
+        <PositionedSnackbarProvider>
+          <div className={`main`}>
+            <PositionedSnackbar />
+            {children}
+          </div>
+        </PositionedSnackbarProvider>
       </UserProvider>
     </ThemeWrapper>
   );
