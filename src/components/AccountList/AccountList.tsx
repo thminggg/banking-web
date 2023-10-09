@@ -48,8 +48,17 @@ export default function AccountList({ accounts }: PropsType) {
           alignItems="center"
           justifyContent="center"
         >
-          <Image src={ccLogo} alt="Credit card" />
-          <p>Apply 5% Cashback Visa credit card now!</p>
+          <Grid item xs={12} md={5}>
+            <Image
+              src={ccLogo}
+              className={styles.adImg}
+              alt="Credit card"
+              priority
+            />
+          </Grid>
+          <Grid item xs={12} md={5}>
+            <p>Apply 5% Cashback Visa credit card</p>
+          </Grid>
         </Grid>
         {Object.values(SupportedCountries).map((country) => {
           return (
