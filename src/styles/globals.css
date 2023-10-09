@@ -25,7 +25,18 @@ a {
 .main {
   max-width: 65vw;
   margin: auto;
-  padding-top: 9em;
+  @media (min-width: 1200px) {
+    padding-top: 9em;
+  }
+  @media (max-width: 1200px) {
+    padding-top: 2em;
+  }
+}
+
+.login {
+  @media (max-width: 1200px) {
+    padding-top: 7em;
+  }
 }
 
 .mainImage {

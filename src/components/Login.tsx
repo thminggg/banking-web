@@ -48,7 +48,7 @@ const Login = () => {
   };
 
   return (
-    <div onKeyDown={handleKeyDown}>
+    <div className="login" onKeyDown={handleKeyDown}>
       <Grid container spacing={1.5} justifyContent="center" direction="row">
         <Grid item xs={8}>
           <Image src={appLogo} alt="Sign up" className="mainImage" priority />

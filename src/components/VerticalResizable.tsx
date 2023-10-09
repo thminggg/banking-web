@@ -37,7 +37,7 @@ function VerticalResizable({
   children?: React.ReactNode;
 }) {
   const MAX_HEIGHT = screen.height - 200;
-  const MIN_HEIGHT = 300;
+  const MIN_HEIGHT = 200;
   const [height, setHeight] = useState(initialHeight); // Initial height
   const draggingRef = useRef<HTMLDivElement>(null);
   const lastYRef = useRef(0);
