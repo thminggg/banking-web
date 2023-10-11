@@ -21,6 +21,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="manifest" href="/banking-web/manifest.json" />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/banking-web/pwa-icons/android-launchericon-512-512.png"
+        />
+        <meta name="theme-color" content="#fff" />
+      </head>
       <StrictMode>
         <ThemeWrapper>
           <UserProvider>
