@@ -1,13 +1,16 @@
 "use client";
 
+import { useFirebaseContext } from "@/providers/firebaseProvider";
 import { useUserContext } from "@/providers/userProvider";
+import appLogo from "@/public/icons/undraw_savings_re_eq4w.svg";
+import { FIREBASE_EVENTS } from "@/services/firebase/events";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
+import { Analytics, logEvent } from "firebase/analytics";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import appLogo from "@/public/icons/undraw_savings_re_eq4w.svg";
 import RightMostGrid from "./RightMostGrid";
 
 const Login = () => {
@@ -17,6 +20,11 @@ const Login = () => {
 
   // Context User
   const { user, saveUser } = useUserContext();
+
+  // Context Firebase
+  const { firebaseAnalytics } = useFirebaseContext() as {
+    firebaseAnalytics: Analytics;
+  };
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     switch (event.target.id) {
@@ -42,6 +50,7 @@ const Login = () => {
 
     // Save Context
     saveUser({ name: username });
+    logEvent(firebaseAnalytics, FIREBASE_EVENTS.LOGIN);
 
     // Proceed
     router.push("/account-list");

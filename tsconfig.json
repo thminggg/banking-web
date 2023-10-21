@@ -26,6 +26,7 @@
       "@/styles/*": ["./src/styles/*"],
       "@/types/*": ["./src/types/*"],
       "@/utils/*": ["./src/utils/*"],
+      "@/firebase/*": ["./src/services/firebase/*"],
       "@/public/*": ["./public/*"]
     }
   },
