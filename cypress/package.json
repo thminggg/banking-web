@@ -6,7 +6,8 @@
     "name": "Patrick T"
   },
   "scripts": {
-    "test": "cypress open"
+    "test": "cypress open",
+    "test:gh-page": "cypress open --config baseUrl=https://thminggg.github.io/banking-web"
   },
   "devDependencies": {
     "cypress": "^13.3.2",
