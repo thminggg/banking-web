@@ -1,0 +1,15 @@
+{
+  "name": "banking-web-cypress",
+  "version": "0.1.0",
+  "private": true,
+  "author": {
+    "name": "Patrick T"
+  },
+  "scripts": {
+    "test": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^13.3.2",
+    "typescript": "^5.2.2"
+  }
+}
