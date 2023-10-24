@@ -28,7 +28,7 @@ export default function AccountList({ accounts }: PropsType) {
 
   const handleLogout = () => {
     saveUser({ name: "" });
-    router.push("/");
+    router.push("/home");
   };
 
   return (

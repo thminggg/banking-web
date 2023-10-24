@@ -63,11 +63,11 @@ const Login = () => {
           <Image src={appLogo} alt="Sign up" className="mainImage" priority />
         </Grid>
         <Grid item xs={12}>
-          {user?.name ? (
-            <p>Welcome back {user.name}</p>
-          ) : (
-            <p>Please login your account</p>
-          )}
+          <p data-cy="login-subtitle">
+            {user?.name
+              ? `Welcome back ${user.name}`
+              : `Please login your account`}
+          </p>
         </Grid>
         <Grid item xs={12}>
           <TextField
@@ -77,6 +77,7 @@ const Login = () => {
             id="username"
             label="Username"
             variant="outlined"
+            inputProps={{ "data-cy": "login-username" }}
           />
         </Grid>
         <Grid item xs={12}>
@@ -88,10 +89,15 @@ const Login = () => {
             label="Password"
             variant="outlined"
             type="password"
+            inputProps={{ "data-cy": "login-password" }}
           />
         </Grid>
         <RightMostGrid>
-          <Button variant="contained" onClick={handleLogin}>
+          <Button
+            variant="contained"
+            onClick={handleLogin}
+            data-cy="login-button"
+          >
             Login
           </Button>
         </RightMostGrid>

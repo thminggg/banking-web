@@ -1,6 +1,6 @@
 ## Live Demo
 
-https://thminggg.github.io/banking-web
+https://thminggg.github.io/banking-web/home
 
 ## Getting Started
 
@@ -23,4 +23,4 @@ npm run build
 npm run start
 ```
 
-Open [http://localhost:3000/banking-web](http://localhost:3000/banking-web) with your browser to see the web application.
+Open [http://localhost:3000/banking-web/home](http://localhost:3000/banking-web/home) with your browser to see the web application.
