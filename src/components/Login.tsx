@@ -1,13 +1,10 @@
 "use client";
 
 import computerUIAnimation from "@/assets/computer-ui-animation.json";
-import { useFirebaseContext } from "@/providers/firebaseProvider";
 import { useUserContext } from "@/providers/userProvider";
-import { FIREBASE_EVENTS } from "@/services/firebase/events";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import { Analytics, logEvent } from "firebase/analytics";
 import Lottie from "lottie-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -20,11 +17,6 @@ const Login = () => {
 
   // Context User
   const { user, saveUser } = useUserContext();
-
-  // Context Firebase
-  const { firebaseAnalytics } = useFirebaseContext() as {
-    firebaseAnalytics: Analytics;
-  };
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     switch (event.target.id) {
@@ -50,7 +42,6 @@ const Login = () => {
 
     // Save Context
     saveUser({ name: username });
-    logEvent(firebaseAnalytics, FIREBASE_EVENTS.LOGIN);
 
     // Proceed
     router.push("/account-list");

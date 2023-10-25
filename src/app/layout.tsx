@@ -1,7 +1,6 @@
 import PositionedSnackbar from "@/components/PositionedSnackbar";
 import ServiceWorker from "@/components/ServiceWorker/ServiceWorker";
 import ThemeWrapper from "@/containers/ThemeWrapper";
-import { FirebaseProvider } from "@/providers/firebaseProvider";
 import { PositionedSnackbarProvider } from "@/providers/positionedSnackbarProvider";
 import { UserProvider } from "@/providers/userProvider";
 import "@/styles/globals.css";
@@ -34,18 +33,16 @@ export default function RootLayout({
       </head>
       <ServiceWorker />
       <StrictMode>
-        <FirebaseProvider>
-          <ThemeWrapper>
-            <UserProvider>
-              <PositionedSnackbarProvider>
-                <body className={`${inter.className} main`}>
-                  <PositionedSnackbar />
-                  {children}
-                </body>
-              </PositionedSnackbarProvider>
-            </UserProvider>
-          </ThemeWrapper>
-        </FirebaseProvider>
+        <ThemeWrapper>
+          <UserProvider>
+            <PositionedSnackbarProvider>
+              <body className={`${inter.className} main`}>
+                <PositionedSnackbar />
+                {children}
+              </body>
+            </PositionedSnackbarProvider>
+          </UserProvider>
+        </ThemeWrapper>
       </StrictMode>
     </html>
   );
