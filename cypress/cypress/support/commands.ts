@@ -25,13 +25,18 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+
+import { selectors as homeSelectors } from "../e2e/selectors/home";
+
+Cypress.Commands.add("dataCy", (value) => {
+  return cy.get(`[data-cy=${value}]`);
+});
+
+Cypress.Commands.add(
+  "login",
+  (username = "Username", password = "password") => {
+    cy.dataCy(homeSelectors.username).type(username);
+    cy.dataCy(homeSelectors.password).type(password);
+    cy.dataCy(homeSelectors.loginButton).click();
+  }
+);
