@@ -3,7 +3,7 @@
   "background_color": "#f8fafc",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/banking-web",
+  "start_url": "/banking-web/home",
   "name": "Banking Web App",
   "short_name": "BWA",
   "description": "A Banking Web App with Next Js TypeScript",
