@@ -19,7 +19,7 @@ const countryNameMap: { [key in SupportedCountries]: string } = {
 };
 
 const Welcome = ({ name }: { name?: string }) => {
-  return <p>Welcome back {name}!</p>;
+  return <p data-cy="welcome-message">Welcome back {name}!</p>;
 };
 
 export default function AccountList({ accounts }: PropsType) {
@@ -38,7 +38,9 @@ export default function AccountList({ accounts }: PropsType) {
           <Welcome name={user?.name} />
         </Grid>
         <Grid item xs={6} className={styles.logoutButtonGrid}>
-          <Button onClick={handleLogout}>Logout</Button>
+          <Button data-cy="logout-button" onClick={handleLogout}>
+            Logout
+          </Button>
         </Grid>
       </Grid>
       <Grid container rowGap={6} paddingBottom={12}>
@@ -50,6 +52,7 @@ export default function AccountList({ accounts }: PropsType) {
         >
           <Grid item xs={12} md={5}>
             <Image
+              data-cy="credit-card-img"
               src={ccLogo}
               className={styles.adImg}
               alt="Credit card"
@@ -57,13 +60,15 @@ export default function AccountList({ accounts }: PropsType) {
             />
           </Grid>
           <Grid item xs={12} md={5}>
-            <p>Apply 5% Cashback Visa credit card</p>
+            <p data-cy="credit-card-slogan">
+              Apply 5% Cashback Visa credit card
+            </p>
           </Grid>
         </Grid>
         {Object.values(SupportedCountries).map((country) => {
           return (
             accounts?.[country] && (
-              <Grid item xs={12} key={country}>
+              <Grid item xs={12} key={country} data-cy="account-grid">
                 <p className={styles.country}>{countryNameMap[country]}</p>
                 {accounts[country]?.map((acc) => {
                   return (

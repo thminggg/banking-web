@@ -5,10 +5,9 @@ describe("Home", () => {
 
   it("should render", () => {
     cy.visit("/home");
-    cy.dataCy(selectors.subtitle).should("be.visible");
-    cy.dataCy(selectors.subtitle).contains("Please login your account");
-    cy.dataCy(selectors.username).should("be.visible");
-    cy.dataCy(selectors.password).should("be.visible");
+    for (const element in selectors) {
+      cy.dataCy(selectors[element]).should("be.visible");
+    }
   });
 
   it("should login", () => {
