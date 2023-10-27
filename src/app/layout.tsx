@@ -1,4 +1,5 @@
 import PositionedSnackbar from "@/components/PositionedSnackbar";
+import ServiceWorker from "@/components/ServiceWorker/ServiceWorker";
 import ThemeWrapper from "@/containers/ThemeWrapper";
 import { FirebaseProvider } from "@/providers/firebaseProvider";
 import { PositionedSnackbarProvider } from "@/providers/positionedSnackbarProvider";
@@ -31,6 +32,7 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#fff" />
       </head>
+      <ServiceWorker />
       <StrictMode>
         <FirebaseProvider>
           <ThemeWrapper>
