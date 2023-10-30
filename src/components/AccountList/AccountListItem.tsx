@@ -23,7 +23,10 @@ export default function AccountListItem({
   };
 
   return (
-    <ButtonBase className={`${styles.item} ${styles.itemButton}`}>
+    <ButtonBase
+      className={`${styles.item} ${styles.itemButton}`}
+      data-cy="account-grid"
+    >
       <Grid
         container
         direction="row"
@@ -36,13 +39,21 @@ export default function AccountListItem({
             <LeftMostGrid item xs={6} className={styles.accountName}>
               {account.name}
             </LeftMostGrid>
-            <LeftMostGrid item xs={6} className={styles.accountNumber}>
+            <LeftMostGrid
+              item
+              xs={6}
+              className={styles.accountNumber}
+              data-cy="account-id"
+            >
               {account.id}
             </LeftMostGrid>
           </Grid>
         </Grid>
         {/* Account Balance */}
-        <RightMostGrid className={styles.amount}>
+        <RightMostGrid
+          className={styles.amount}
+          data-cy="account-formatted-amount"
+        >
           {formattedAmount}
         </RightMostGrid>
       </Grid>

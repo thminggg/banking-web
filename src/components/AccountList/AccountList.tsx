@@ -68,8 +68,10 @@ export default function AccountList({ accounts }: PropsType) {
         {Object.values(SupportedCountries).map((country) => {
           return (
             accounts?.[country] && (
-              <Grid item xs={12} key={country} data-cy="account-grid">
-                <p className={styles.country}>{countryNameMap[country]}</p>
+              <Grid item xs={12} key={country}>
+                <p className={styles.country} data-cy="account-country">
+                  {countryNameMap[country]}
+                </p>
                 {accounts[country]?.map((acc) => {
                   return (
                     <AccountListItem
