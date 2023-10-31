@@ -44,3 +44,4 @@ next-env.d.ts
 
 # cypress
 cypress/node_modules
+cypress/cypress/downloads

@@ -42,24 +42,24 @@ const AccountSummary = ({
   return (
     <>
       {/* Account Info */}
-      <Grid item xs={12}>
+      <Grid item xs={12} data-cy="account-name">
         <CenterText className={styles.accountName} text={account.name} />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} data-cy="account-id">
         <CenterText className={styles.accountId} text={account.id} />
       </Grid>
       {/* Account Balance */}
       <Grid container direction="row" className={styles.section}>
-        <Grid item xs={12}>
+        <Grid item xs={12} data-cy="account-balance-text">
           <CenterText text="Ledger balance" />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} data-cy="account-balance">
           <CenterText
             className={styles.accountBalance}
             text={`${formattedAmount}`}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} data-cy="account-available-balance">
           <CenterText text={`Available balance: ${formattedAmount}`} />
         </Grid>
       </Grid>
@@ -93,6 +93,7 @@ const AccountActions = ({
           margin: "1em 0",
         }}
         onClick={handleOpenEStatement}
+        data-cy="eStatement-button"
       >
         <Grid item xs={2}>
           <ArticleIcon className={styles.eStatementIcon} />
@@ -110,6 +111,7 @@ const AccountActions = ({
         className={styles.hidden}
         href="/attachments/Mock-Bank-Statement.pdf"
         target="_blank"
+        data-cy="eStatement-link"
       />
       <ButtonBase
         className={styles.actionButton}
@@ -117,6 +119,7 @@ const AccountActions = ({
           margin: "1em 0",
         }}
         onClick={handleOpenDialog}
+        data-cy="transfer-button"
       >
         <Grid item xs={2}>
           <CurrencyExchangeIcon className={styles.transferIcon} />
@@ -133,6 +136,7 @@ const AccountActions = ({
         handleClose={handleCloseDialog}
         handleConfirm={handleConfirmDialog}
         country={country}
+        data-cy="transfer-dialog"
       />
     </Grid>
   );
@@ -188,7 +192,10 @@ export default function AccountTransaction({ account }: { account: Account }) {
         handleConfirmDialog={handleConfirmDialog}
         handleOpenEStatement={handleOpenEStatement}
       />
-      <AccountTransactionList accountId={account.id} />
+      <AccountTransactionList
+        accountId={account.id}
+        data-cy="account-transaction-list"
+      />
     </Grid>
   );
 }

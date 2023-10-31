@@ -7,12 +7,13 @@ import VerticalResizable from "@/components/VerticalResizable";
 
 export default function AccountTransactionList({
   accountId,
+  ...props
 }: {
   accountId: string;
 }) {
   return (
     <Grid container direction="row">
-      <VerticalResizable>
+      <VerticalResizable {...props}>
         <LeftMostGrid style={{ marginLeft: "1em", marginBottom: "1em" }}>
           <p>Transaction History</p>
         </LeftMostGrid>

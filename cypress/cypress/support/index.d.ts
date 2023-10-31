@@ -8,5 +8,6 @@ declare namespace Cypress {
      */
     dataCy(value: string): Chainable<JQuery<HTMLElement>>;
     login(username?: string, password?: string): void;
+    firstAccount(): void;
   }
 }

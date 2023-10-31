@@ -26,6 +26,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
 
+import { selectors as accountListSelectors } from "../e2e/selectors/account-list";
 import { selectors as homeSelectors } from "../e2e/selectors/home";
 
 Cypress.Commands.add("dataCy", (value) => {
@@ -40,3 +41,7 @@ Cypress.Commands.add(
     cy.dataCy(homeSelectors.loginButton).click();
   }
 );
+
+Cypress.Commands.add("firstAccount", () => {
+  cy.dataCy(accountListSelectors.accountGrid).children().first().click();
+});

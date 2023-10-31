@@ -19,6 +19,7 @@ export default function TransferDialog({
   handleClose,
   handleConfirm,
   country,
+  ...props
 }: {
   open: boolean;
   handleClose: () => void;
@@ -33,7 +34,7 @@ export default function TransferDialog({
 
   return (
     <>
-      <Dialog open={open} onClose={handleClose} fullWidth={true}>
+      <Dialog open={open} onClose={handleClose} fullWidth={true} {...props}>
         <DialogTitle>Interac</DialogTitle>
         <DialogContent>
           <FormControl

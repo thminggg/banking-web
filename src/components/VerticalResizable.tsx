@@ -31,6 +31,7 @@ function VerticalResizable({
   width = "100%", // Fixed width
   initialHeight = "30vh",
   children,
+  ...props
 }: {
   width?: string;
   initialHeight?: string;
@@ -114,6 +115,7 @@ function VerticalResizable({
         overflow: "hidden",
         overflowY: "scroll",
       }}
+      {...props}
     >
       <DragBar
         handleMouseDown={handleMouseDown}
