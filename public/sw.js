@@ -4,7 +4,7 @@
 const OFFLINE_VERSION = 1;
 
 const CACHE_NAME = "offline";
-const OFFLINE_URL = "/banking-web/offline";
+const OFFLINE_URL = "/banking-web/offline.html";
 self.addEventListener("install", (event) => {
   event.waitUntil(
     (async () => {
@@ -12,7 +12,7 @@ self.addEventListener("install", (event) => {
       // response isn't fulfilled from the HTTP cache; i.e., it will be
       // from the network.
       const res = await fetch(
-        new Request(`${OFFLINE_URL}`, {
+        new Request(OFFLINE_URL, {
           cache: "reload",
         })
       );
