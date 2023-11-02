@@ -3,7 +3,9 @@ import styles from "@/styles/accountTransactionList.module.css";
 import Grid from "@mui/material/Grid";
 import AccountTransactionItem from "./AccountTransactionItem";
 import LeftMostGrid from "@/components/LeftMostGrid";
-import VerticalResizable from "@/components/VerticalResizable";
+// import VerticalResizable from "@/components/VerticalResizable";
+/* Use scoped node module */
+import { VerticalResizable } from "@thminggg/react-vertical-resizable";
 
 export default function AccountTransactionList({
   accountId,
