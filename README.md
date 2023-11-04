@@ -2,6 +2,22 @@
 
 https://thminggg.github.io/banking-web/home
 
+## Banking Web App
+
+This repository is to demonstrate a banking web app with Progressive Web App (PWA) and offline page cache support.
+
+## Tech Stack
+
+1. NextJS
+2. Typescript
+3. Web manifest
+4. Service worker
+5. `SSR` (`main` branch) & `SSG` (`gh-page` branch) handling
+6. GitHub Actions
+7. Material UI
+8. Cypress
+9. Scoped npm package - https://github.com/thminggg/react-vertical-resizable
+
 ## Getting Started
 
 Install npm packages:
@@ -14,11 +30,8 @@ Run the development server:
 
 ```bash
 npm run dev
-```
 
-Or, run the production server in local:
-
-```bash
+# Or production mode
 npm run build
 npm run start
 ```
@@ -27,15 +40,26 @@ Open [http://localhost:3000/banking-web/home](http://localhost:3000/banking-web/
 
 ## Testing
 
+Run test on Github Page:
+
+```
+npm run test:gh-page
+```
+
+<br />
+OR
+
+<br />
+
 Run the development server:
 
-```bash
+```
 npm run dev
 ```
 
 Open a new terminal and run test:
 
-```bash
+```
 cd cypress
 npm install
 npm run test:local
