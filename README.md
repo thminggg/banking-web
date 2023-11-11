@@ -4,7 +4,7 @@ https://thminggg.github.io/banking-web/home
 
 ## Banking Web App
 
-This repository is to demonstrate a banking web app with Progressive Web App (PWA) and offline page cache support.
+This repository demonstrates a banking web app with Progressive Web App (PWA) and offline page cache support.
 
 ## Tech Stack
 
