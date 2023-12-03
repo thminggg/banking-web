@@ -1,10 +1,11 @@
-## Live Demo
-
-https://thminggg.github.io/banking-web/home
-
 ## Banking Web App
 
 This repository demonstrates a banking web app with Progressive Web App (PWA) and offline page cache support.
+
+## Live Demo
+
+https://thminggg.github.io/banking-web/home
+![Demo](public/demo/bank-web-app-demo.gif)
 
 ## Tech Stack
 
