@@ -5,7 +5,8 @@ This repository demonstrates a banking web app with Progressive Web App (PWA) an
 ## Live Demo
 
 https://thminggg.github.io/banking-web/home
-![Demo](public/demo/bank-web-app-demo.gif)
+
+https://github.com/thminggg/banking-web/assets/17175914/fbb001f3-28e6-45ba-a1d4-318895063afe
 
 ## Tech Stack
 
