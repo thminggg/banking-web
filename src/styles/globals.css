@@ -12,9 +12,12 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
+  background: linear-gradient(
+      to bottom,
       transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
 a {
@@ -43,7 +46,23 @@ a {
   width: 100%;
   height: auto;
 
-  @media (min-width: 600px) {
+  @media (min-width: 768px) {
     max-height: 33vh;
+  }
+}
+
+.animation {
+  width: 100%;
+  height: auto;
+  margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.animation > svg {
+  @media (min-width: 768px) {
+    max-height: 18rem;
   }
 }

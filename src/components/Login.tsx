@@ -1,14 +1,14 @@
 "use client";
 
+import computerUIAnimation from "@/assets/computer-ui-animation.json";
 import { useFirebaseContext } from "@/providers/firebaseProvider";
 import { useUserContext } from "@/providers/userProvider";
-import appLogo from "@/public/icons/undraw_savings_re_eq4w.svg";
 import { FIREBASE_EVENTS } from "@/services/firebase/events";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import { Analytics, logEvent } from "firebase/analytics";
-import Image from "next/image";
+import Lottie from "lottie-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import RightMostGrid from "./RightMostGrid";
@@ -60,7 +60,15 @@ const Login = () => {
     <div className="login" onKeyDown={handleKeyDown}>
       <Grid container spacing={1.5} justifyContent="center" direction="row">
         <Grid item xs={8}>
-          <Image src={appLogo} alt="Sign up" className="mainImage" priority />
+          <Lottie
+            className="animation"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+            animationData={computerUIAnimation}
+          />
+          {/* <Image src={appLogo} alt="Sign up" className="mainImage" priority /> */}
         </Grid>
         <Grid item xs={12}>
           <p data-cy="login-subtitle">
