@@ -18,7 +18,13 @@ const UserContext = createContext<UserContextType | null>(null);
  * https://stackoverflow.com/questions/66374123/warning-text-content-did-not-match-server-im-out-client-im-in-div
  */
 export function useUserContext() {
-  const { user, saveUser } = useContext(UserContext) as UserContextType;
+  const context = useContext(UserContext);
+
+  if (!context) {
+    throw new Error("useUserContext must be used within a UserProvider");
+  }
+
+  const { user, saveUser } = context;
   const { data, error, isLoading } = useSWR("sessUser", () => user);
 
   // Revalidate before using it
