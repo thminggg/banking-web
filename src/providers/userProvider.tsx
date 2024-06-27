@@ -12,6 +12,26 @@ const defaultUser = {
 // Create a context
 const UserContext = createContext<UserContextType | null>(null);
 
+export function UserProvider({ children }: { children: React.ReactNode }) {
+  // Retrieve user from session storage
+  const localUser = sessGetItem("user");
+  const _user = localUser || defaultUser;
+
+  const [user, setUser] = useState<User | null>(_user);
+  const saveUser = (user: User) => {
+    setUser(user);
+
+    // Save user in session storage
+    sessSetItem("user", user);
+  };
+
+  return (
+    <UserContext.Provider value={{ user, saveUser }}>
+      {children}
+    </UserContext.Provider>
+  );
+}
+
 /**
  * Use the user context with SWR to handle SSR gracefully
  * Notes: Prevent error of
@@ -36,24 +56,4 @@ export function useUserContext() {
     error,
     isLoading,
   };
-}
-
-export function UserProvider({ children }: { children: React.ReactNode }) {
-  // Retrieve user from session storage
-  const localUser = sessGetItem("user");
-  const _user = localUser || defaultUser;
-
-  const [user, setUser] = useState<User | null>(_user);
-  const saveUser = (user: User) => {
-    setUser(user);
-
-    // Save user in session storage
-    sessSetItem("user", user);
-  };
-
-  return (
-    <UserContext.Provider value={{ user, saveUser }}>
-      {children}
-    </UserContext.Provider>
-  );
 }
