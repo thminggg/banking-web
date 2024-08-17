@@ -1,6 +1,7 @@
 ## Banking Web App
 
-This repository demonstrates a banking web app with Progressive Web App (PWA) and offline page cache support.
+This repository demonstrates a banking web app with Progressive Web App (PWA) and offline page cache support. <br />
+(P.S. Not all best practices are applied here for demo purpose, like the `.env`)
 
 ## Live Demo
 
