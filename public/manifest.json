@@ -4,7 +4,7 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/banking-web/home",
-  "name": "Banking Web App",
+  "name": "Banking Web",
   "short_name": "BWA",
   "description": "A Banking Web App with Next Js TypeScript",
   "icons": [
