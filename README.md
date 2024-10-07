@@ -4,7 +4,7 @@ This repository demonstrates a banking web app with Progressive Web App (PWA) an
 
 ## Live Demo
 
-https://thminggg.github.io/banking-web/home
+https://thminggg.github.io/react-frontend/home
 
 https://github.com/thminggg/banking-web/assets/17175914/fbb001f3-28e6-45ba-a1d4-318895063afe
 
@@ -38,7 +38,7 @@ npm run build
 npm run start
 ```
 
-Open [http://localhost:3000/banking-web/home](http://localhost:3000/banking-web/home) with your browser to see the web application.
+Open [http://localhost:3000/react-frontend/home](http://localhost:3000/react-frontend/home) with your browser to see the web application.
 
 ## Testing
 
