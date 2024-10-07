@@ -2,9 +2,9 @@
 
 import firebaseConfig from "@/services/firebase/config";
 import { FirebaseServices } from "@/types/firebase";
+import { Analytics, getAnalytics } from "firebase/analytics";
 import { getApps, initializeApp } from "firebase/app";
-import { getAnalytics, Analytics } from "firebase/analytics";
-import React, { createContext, useContext, useEffect } from "react";
+import React, { createContext, useContext } from "react";
 
 // Create a context
 const FirebaseContext = createContext<FirebaseServices | null>(null);
